@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "carrinho-de-compras",
+    "slug": "carrinho-de-compras",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
