@@ -2,6 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+/**
+ * estalação de bibliotecas
+ * npx expo install @react-navigation/native
+ * npx expo install react-native-screens react-native-safe-area-context
+ * npx expo install @react-navigation/native-stack
+ */
+
 export default function App() {
   return (
     <View style={styles.container}>
