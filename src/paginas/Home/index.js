@@ -9,7 +9,7 @@ import {CarrinhoContext} from '../../context/CarrinhoContext.js';
 
 export default function Home(){
 
-    const { carrinho } = useContext(CarrinhoContext);
+    const { carrinho,adicionarItemNoCarrinho } = useContext(CarrinhoContext);
     const navigation = useNavigation();
     const [produtos, setProdutos] = useState([
         {
@@ -44,6 +44,10 @@ export default function Home(){
         },
 
     ])
+
+    function handleAdicionarAoCarrinho(item){
+        adicionarItemNoCarrinho(item)
+    }
 return(
     <SafeAreaView style={styles.container}>
         <View style={styles.carrinhoContent}>
@@ -61,7 +65,7 @@ return(
         <FlatList style={styles.lista}
             data={produtos}
             keyExtractor={(item) => String(item.id)}
-            renderItem={({item}) => <Produto data={item}/>}
+            renderItem={({item}) => <Produto data={item} adicionarAoCarrinho={() => handleAdicionarAoCarrinho(item)}/>}
         />
     </SafeAreaView>
 )
