@@ -36,6 +36,9 @@ const styles = StyleSheet.create({
     },
     carrinhoBotao:{
 
+    },
+    lista:{
+        
     }
 })
 export default styles;
