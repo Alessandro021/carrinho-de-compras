@@ -13,7 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
-      <Rotas />
+        <Rotas />
     </NavigationContainer>
   );
 }
