@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native'
+import Rotas from './src/rotas';
 
 /**
  * estalação de bibliotecas
@@ -11,18 +11,9 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content"/>
+      <Rotas />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
