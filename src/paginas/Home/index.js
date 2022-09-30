@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext} from 'react';
 import { View, Text, SafeAreaView, FlatList, TouchableOpacity} from 'react-native';
 import styles from './styles.js'
 import Produto from '../../components/Produto/index.js';
 import {useNavigation} from '@react-navigation/native'
 
 import { Feather } from '@expo/vector-icons'
+import {CarrinhoContext} from '../../context/CarrinhoContext.js';
 
 export default function Home(){
+
+    const { carrinho } = useContext(CarrinhoContext);
     const navigation = useNavigation();
     const [produtos, setProdutos] = useState([
         {
@@ -49,7 +52,7 @@ return(
                 onPress={() => navigation.navigate('Carrinho')}
              >
                 <View style={styles.quantidade}>
-                    <Text style={styles.quantidadeTexto}>3</Text>
+                    <Text style={styles.quantidadeTexto}>{carrinho?.length}</Text>
                 </View>
                 <Feather  name='shopping-cart' size={30} color='#000'/>
              </TouchableOpacity>
