@@ -6,6 +6,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#FAFAFA',
         paddingHorizontal: 14,
         paddingTop: 14
+    },
+    total:{
+        fontSize: 18,
+        fontWeight: '800',
+        marginBottom: 24
     }
 })
 

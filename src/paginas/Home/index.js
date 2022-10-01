@@ -55,9 +55,11 @@ return(
              <TouchableOpacity style={styles.carrinhoBotao}
                 onPress={() => navigation.navigate('Carrinho')}
              >
-                <View style={styles.quantidade}>
-                    <Text style={styles.quantidadeTexto}>{carrinho?.length}</Text>
-                </View>
+                {carrinho.length >= 1 && (
+                    <View style={styles.quantidade}>
+                        <Text style={styles.quantidadeTexto}>{carrinho?.length}</Text>
+                    </View>
+                )}
                 <Feather  name='shopping-cart' size={30} color='#008000'/>
              </TouchableOpacity>
         </View>

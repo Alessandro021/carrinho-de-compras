@@ -6,7 +6,7 @@ import ItensDoCarrinho from '../../components/ItensDoCarrinho/index.js';
 
 export default function Carrinho(){
 
-    const { carrinho, adicionarItemNoCarrinho, removerItemDoCarrinho} = useContext(CarrinhoContext)
+    const { carrinho, adicionarItemNoCarrinho, removerItemDoCarrinho, total} = useContext(CarrinhoContext)
 return(
     <View style={styles.container}>
         <FlatList 
@@ -19,6 +19,8 @@ return(
             adicionarQuantidade={ () => adicionarItemNoCarrinho(item)}
             removerQuantidade= {() => removerItemDoCarrinho(item)}
             />)}
+            ListFooterComponent={()=> total > 0 && <Text style={styles.total}>Total: R${total}</Text>}
+            
         />
     </View>
 )

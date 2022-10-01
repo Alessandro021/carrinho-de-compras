@@ -4,6 +4,7 @@ export const CarrinhoContext = createContext({})
 
 function CarrinhoProvider({children}){
     const [carrinho, setCarrinho] = useState([])
+    const [total, setTotal] = useState(0);
 
     function adicionarItemNoCarrinho(novoItem){
        
@@ -17,6 +18,7 @@ function CarrinhoProvider({children}){
              listaDoCarrinho[indexDoItem].total = listaDoCarrinho[indexDoItem].quantidade * listaDoCarrinho[indexDoItem].preco;
 
              setCarrinho(listaDoCarrinho)
+             valorTotalDoCarrinho(listaDoCarrinho)
              return
         }
 
@@ -27,6 +29,7 @@ function CarrinhoProvider({children}){
         }
 
         setCarrinho(produtos => [...produtos, dado])
+        valorTotalDoCarrinho([...carrinho, dado])
     }
 
     function removerItemDoCarrinho(produto){
@@ -40,11 +43,20 @@ function CarrinhoProvider({children}){
             listaDoCarrinho[indexDoItem].total = listaDoCarrinho[indexDoItem].total -listaDoCarrinho[indexDoItem].preco
 
             setCarrinho(listaDoCarrinho)
+            valorTotalDoCarrinho(listaDoCarrinho)
             return
         }
 
         const removerItem = carrinho.filter(item => item.id !== produto.id)
         setCarrinho(removerItem)
+        valorTotalDoCarrinho(removerItem)
+    }
+
+    function valorTotalDoCarrinho(itens){
+        let meuCarrinho = itens;
+        let resultado = meuCarrinho.reduce((acumulador, objeto) => { return acumulador + objeto.total}, 0)
+
+        setTotal(resultado.toFixed(2));
     }
 
     return(
@@ -52,7 +64,8 @@ function CarrinhoProvider({children}){
             value={{
                 carrinho,
                 adicionarItemNoCarrinho,
-                removerItemDoCarrinho
+                removerItemDoCarrinho,
+                total
             }}
         >
             {children}

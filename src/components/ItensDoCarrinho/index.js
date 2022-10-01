@@ -26,7 +26,7 @@ export default function ItensDoCarrinho( { data, adicionarQuantidade, removerQua
    <View style={styles.container}>
         <View>
             <Text style={styles.titulo}>{data.nome}</Text>
-            <Text style={styles.preco}>R$ {data.preco}</Text>
+            <Text style={styles.preco}>R$ {data.preco.toFixed(2)}</Text>
         </View>
 
         <View style={styles.containerQuantidade}>
