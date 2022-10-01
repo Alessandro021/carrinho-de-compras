@@ -29,11 +29,30 @@ function CarrinhoProvider({children}){
         setCarrinho(produtos => [...produtos, dado])
     }
 
+    function removerItemDoCarrinho(produto){
+        const indexDoItem = carrinho.findIndex(item => item.id === produto.id)
+
+        if(carrinho[indexDoItem]?.quantidade > 1){
+            let listaDoCarrinho = carrinho;
+
+            listaDoCarrinho[indexDoItem].quantidade = listaDoCarrinho[indexDoItem].quantidade -1;
+
+            listaDoCarrinho[indexDoItem].total = listaDoCarrinho[indexDoItem].total -listaDoCarrinho[indexDoItem].preco
+
+            setCarrinho(listaDoCarrinho)
+            return
+        }
+
+        const removerItem = carrinho.filter(item => item.id !== produto.id)
+        setCarrinho(removerItem)
+    }
+
     return(
         <CarrinhoContext.Provider
             value={{
                 carrinho,
-                adicionarItemNoCarrinho
+                adicionarItemNoCarrinho,
+                removerItemDoCarrinho
             }}
         >
             {children}

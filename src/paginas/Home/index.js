@@ -58,7 +58,7 @@ return(
                 <View style={styles.quantidade}>
                     <Text style={styles.quantidadeTexto}>{carrinho?.length}</Text>
                 </View>
-                <Feather  name='shopping-cart' size={30} color='#000'/>
+                <Feather  name='shopping-cart' size={30} color='#008000'/>
              </TouchableOpacity>
         </View>
 

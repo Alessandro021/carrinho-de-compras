@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     quantidade:{
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'red',
+        backgroundColor: '#FF0000',
         width: 20,
         height: 20,
         borderRadius: 10,
